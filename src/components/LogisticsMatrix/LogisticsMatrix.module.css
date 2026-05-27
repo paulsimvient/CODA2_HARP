@@ -1,0 +1,196 @@
+.matrix {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background: #0f1117;
+  border: 1px solid #2a2d3a;
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: "SF Mono", "Fira Code", monospace;
+  font-size: 12px;
+}
+
+.header {
+  padding: 8px 12px 8px 160px;
+  border-bottom: 1px solid #2a2d3a;
+  background: #161920;
+}
+
+.timeAxis {
+  display: flex;
+  justify-content: space-between;
+  color: #5a6070;
+  font-size: 11px;
+}
+
+.tick {
+  flex: 0 0 auto;
+}
+
+.lanes {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: #2a2d3a;
+}
+
+.lane {
+  display: flex;
+  align-items: stretch;
+  background: #0f1117;
+  min-height: 44px;
+}
+
+.laneLabel {
+  flex: 0 0 148px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  font-size: 11px;
+  color: #8892a4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-right: 1px solid #2a2d3a;
+  background: #161920;
+}
+
+.laneTrack {
+  flex: 1;
+  position: relative;
+  min-height: 44px;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent calc(100% / 6 - 1px),
+    #1e2130 calc(100% / 6 - 1px),
+    #1e2130 calc(100% / 6)
+  );
+}
+
+.chip {
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  background: linear-gradient(135deg, #3b5bdb 0%, #4c6ef5 100%);
+  border: 1px solid transparent;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 6px;
+  cursor: pointer;
+  transition: filter 0.15s, box-shadow 0.15s;
+  min-width: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  text-align: left;
+}
+
+.chip:disabled {
+  cursor: default;
+}
+
+.chip:hover:not(:disabled) {
+  filter: brightness(1.15);
+  z-index: 10;
+}
+
+.chipLinked {
+  background: linear-gradient(135deg, #2f6fed 0%, #38bdf8 100%);
+  border-color: rgba(56, 189, 248, 0.55);
+}
+
+.chipSelected {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  border-color: rgba(251, 191, 36, 0.85);
+  z-index: 12;
+  box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.35);
+}
+
+.chipLabel {
+  font-size: 10px;
+  font-weight: 600;
+  color: #e8eaf6;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: 0.02em;
+  flex: 1;
+  min-width: 0;
+}
+
+.chipTag {
+  flex-shrink: 0;
+  font-size: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  padding: 1px 4px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 12px;
+  border-top: 1px solid #2a2d3a;
+  background: #161920;
+  color: #5a6070;
+  font-size: 11px;
+}
+
+.chipCount {
+  color: #5a6070;
+}
+
+.duration {
+  color: #5a6070;
+}
+
+/* Empty state */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 48px 24px;
+  background: #0f1117;
+  border: 1px solid #2a2d3a;
+  border-radius: 8px;
+  min-height: 160px;
+}
+
+.emptyIcon {
+  font-size: 28px;
+  color: #2a2d3a;
+}
+
+.emptyMessage {
+  font-size: 13px;
+  color: #c5d9ef;
+  text-align: center;
+  font-weight: 600;
+}
+
+.emptyDetail {
+  margin: 8px 0 0;
+  font-size: 11px;
+  color: #7aa4cd;
+  text-align: center;
+  line-height: 1.45;
+  max-width: 320px;
+}
+
+.warningPanel {
+  padding: 20px;
+  border: 1px solid rgba(255, 182, 66, 0.5);
+  border-radius: 8px;
+  background: rgba(95, 63, 9, 0.34);
+  color: #ffd48a;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}

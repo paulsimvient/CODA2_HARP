@@ -1,0 +1,241 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.empty {
+  color: #5a6070;
+  font-size: 13px;
+  padding: 16px 0;
+}
+
+/* Card */
+.card {
+  width: 100%;
+  text-align: left;
+  background: #161920;
+  border: 1px solid #2a2d3a;
+  border-radius: 8px;
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  font-family: inherit;
+  color: inherit;
+}
+
+.card:hover {
+  border-color: #3b5bdb;
+  background: #1a1e2e;
+}
+
+.selected {
+  border-color: #4c6ef5 !important;
+  background: #1a2045 !important;
+  box-shadow: 0 0 0 1px #4c6ef5 inset;
+}
+
+.unsat {
+  opacity: 0.5;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.rank {
+  font-size: 11px;
+  color: #5a6070;
+  min-width: 20px;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #e8eaf6;
+  flex: 1;
+}
+
+.badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 2px 7px;
+  border-radius: 3px;
+  font-family: "SF Mono", "Fira Code", monospace;
+}
+
+.badge-sat {
+  background: rgba(64, 192, 87, 0.15);
+  color: #40c057;
+  border: 1px solid rgba(64, 192, 87, 0.3);
+}
+
+.badge-unsat {
+  background: rgba(255, 107, 107, 0.1);
+  color: #ff6b6b;
+  border: 1px solid rgba(255, 107, 107, 0.2);
+}
+
+.badge-error {
+  background: rgba(255, 165, 0, 0.1);
+  color: #ffa500;
+  border: 1px solid rgba(255, 165, 0, 0.2);
+}
+
+/* Scores */
+.scores {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.scoreRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.scoreHighlight .scoreLabel {
+  color: #a5b4fc;
+  font-weight: 600;
+}
+
+.scoreLabel {
+  font-size: 10px;
+  color: #5a6070;
+  min-width: 72px;
+  white-space: nowrap;
+}
+
+.scoreTrack {
+  flex: 1;
+  height: 4px;
+  background: #2a2d3a;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.scoreFill {
+  height: 100%;
+  background: linear-gradient(90deg, #3b5bdb, #4c6ef5);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.scoreHighlight .scoreFill {
+  background: linear-gradient(90deg, #4c6ef5, #748ffc);
+}
+
+.scoreValue {
+  font-size: 10px;
+  color: #5a6070;
+  min-width: 30px;
+  text-align: right;
+  font-family: "SF Mono", "Fira Code", monospace;
+}
+
+/* Meta */
+.meta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.metaItem {
+  font-size: 10px;
+  color: #5a6070;
+}
+
+.rationale {
+  margin: 0 0 10px;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.rationale li {
+  font-size: 10px;
+  line-height: 1.4;
+  color: #8b93a8;
+}
+
+.dominated {
+  font-size: 10px;
+  color: #f59e0b;
+  margin-bottom: 6px;
+}
+
+.constraintTrace {
+  margin: 0 0 8px;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.constraintTrace li {
+  font-size: 10px;
+  line-height: 1.35;
+  color: #ff8a8a;
+}
+
+.traceEmbed {
+  margin-top: 8px;
+  text-align: left;
+}
+
+.traceEmbed section {
+  margin-top: 0;
+}
+
+.fidelity {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed #2a2d3a;
+}
+
+.fidelityHeader {
+  font-size: 10px;
+  color: #7f8697;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+.fidelityGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 10px;
+  margin-bottom: 6px;
+}
+
+.metric {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.metricLabel {
+  font-size: 10px;
+  color: #6f7688;
+}
+
+.metricValue {
+  font-size: 10px;
+  color: #9aa2b5;
+  font-family: "SF Mono", "Fira Code", monospace;
+}
+
+.fidelityAdjustments {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,210 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 12px;
+}
+
+.auditableCell {
+  cursor: help;
+  border-bottom: 1px dotted rgba(143, 168, 195, 0.45);
+}
+
+.intent {
+  padding: 8px 10px;
+  border: 1px solid #2a4a72;
+  border-radius: 6px;
+  background: rgba(15, 40, 72, 0.55);
+  color: #a8c4e8;
+  line-height: 1.45;
+}
+
+.intentLabel {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #6f94bc;
+  margin-bottom: 4px;
+}
+
+.table {
+  border: 1px solid #2a4a72;
+  border-radius: 8px;
+  overflow: auto;
+  background: #0a1525;
+}
+
+.table table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 320px;
+}
+
+.table th,
+.table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #1a3354;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.table th {
+  background: #0f2138;
+  color: #8fb0d5;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.table th.criterionCol,
+.table td.criterionCol {
+  text-align: left;
+  min-width: 108px;
+  color: #9eb8d4;
+  font-weight: 600;
+  background: #0d1c30;
+  position: sticky;
+  left: 0;
+  z-index: 1;
+}
+
+.colHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+}
+
+.colHeader strong {
+  color: #e6f1ff;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.colHeader span {
+  font-size: 10px;
+  color: #6f94bc;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.colButton {
+  width: 100%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+}
+
+.colButton:hover .colHeader strong {
+  color: #7ec8ff;
+}
+
+.colSelected {
+  background: rgba(56, 132, 220, 0.22) !important;
+  box-shadow: inset 0 0 0 1px #4a9eff;
+}
+
+.cellHigh {
+  color: #5fd68b;
+  font-weight: 700;
+}
+
+.cellMid {
+  color: #e8c468;
+  font-weight: 600;
+}
+
+.cellLow {
+  color: #f87171;
+  font-weight: 600;
+}
+
+.cellMuted {
+  color: #6f94bc;
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.badgeSat {
+  background: rgba(34, 197, 94, 0.2);
+  color: #5fd68b;
+  border: 1px solid rgba(95, 214, 139, 0.35);
+}
+
+.badgeUnsat {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(248, 113, 113, 0.35);
+}
+
+.decisions {
+  border: 1px solid #1a3354;
+  border-radius: 6px;
+  padding: 8px 10px;
+  background: #0d1c30;
+}
+
+.decisionsTitle {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #6f94bc;
+  margin-bottom: 6px;
+}
+
+.decisionRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 4px 0;
+  border-top: 1px solid #152a45;
+  color: #a8c4e8;
+  line-height: 1.35;
+}
+
+.decisionRow:first-of-type {
+  border-top: none;
+}
+
+.tier {
+  flex-shrink: 0;
+  font-size: 10px;
+  font-weight: 700;
+  color: #67b6ff;
+  text-transform: uppercase;
+}
+
+.empty {
+  padding: 24px 16px;
+  text-align: center;
+  color: #6f94bc;
+  border: 1px dashed #2a4a72;
+  border-radius: 8px;
+}
+
+.compact .table th,
+.compact .table td {
+  padding: 6px 8px;
+  font-size: 11px;
+}
+
+.footerHint {
+  font-size: 10px;
+  color: #5a7a9a;
+  line-height: 1.35;
+}

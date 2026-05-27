@@ -1,0 +1,58 @@
+export const DEMO_ACTION_CATALOG = [
+  {
+    id: "action-air-superiority",
+    name: "Establish Strait Air Defense Screen",
+    type: "air",
+    duration: 7200,
+    resources: ["F-22 Squadron", "AWACS"],
+  },
+  {
+    id: "action-cyber-strike",
+    name: "Defensive Cyber Containment",
+    type: "cyber",
+    duration: 3600,
+    resources: ["Cyber Team Alpha"],
+  },
+  {
+    id: "action-ew-suppress",
+    name: "Electronic Countermeasure Shield",
+    type: "electronic-warfare",
+    duration: 5400,
+    resources: ["EA-18G Squadron"],
+  },
+  {
+    id: "action-sof-recon",
+    name: "Coastal ISR Reconnaissance",
+    type: "ground",
+    duration: 14400,
+    resources: ["SOF Team Bravo"],
+  },
+  {
+    id: "action-strike-package",
+    name: "Counter-launch Suppression Package (Defensive)",
+    type: "strike",
+    duration: 4800,
+    resources: ["F-35 Squadron", "B-2 Squadron"],
+  },
+  {
+    id: "action-maritime-blockade",
+    name: "Sea-lane Protection Patrol",
+    type: "naval",
+    duration: 86400,
+    resources: ["DDG-51 Group"],
+  },
+  {
+    id: "action-logistics-prepositioning",
+    name: "Dispersed Logistics Prepositioning",
+    type: "logistics",
+    duration: 21600,
+    resources: ["C-17 Squadron", "Logistics Hub"],
+  },
+  {
+    id: "action-info-ops",
+    name: "Public Narrative Stabilization",
+    type: "information",
+    duration: 10800,
+    resources: ["IO Cell"],
+  },
+] as const;

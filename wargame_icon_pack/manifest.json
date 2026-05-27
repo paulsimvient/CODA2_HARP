@@ -1,0 +1,36 @@
+{
+  "count": 26,
+  "size_px": 128,
+  "formats": [
+    "png",
+    "svg"
+  ],
+  "icons": [
+    "airbase",
+    "amphibious_ship",
+    "civilian_marker",
+    "coast_guard_cutter",
+    "command_node",
+    "cyber_attack",
+    "damage_explosion",
+    "fighter_jet",
+    "helicopter",
+    "jamming_ew",
+    "logistics_depot",
+    "merchant_ship",
+    "mine",
+    "missile_boat",
+    "missile_inbound",
+    "passive_sensor",
+    "port",
+    "power_grid",
+    "radar",
+    "satellite",
+    "strike_aircraft",
+    "submarine",
+    "surface_warship",
+    "torpedo",
+    "uav_drone",
+    "unknown_contact"
+  ]
+}

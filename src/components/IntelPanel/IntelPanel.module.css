@@ -1,0 +1,482 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── Section ── */
+.section {
+  border-bottom: 1px solid #2a2d3a;
+}
+
+.section:last-child {
+  border-bottom: none;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 0 8px;
+  position: sticky;
+  top: 0;
+  background: #0f1117;
+  z-index: 1;
+}
+
+.sectionTitle {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #5a6070;
+}
+
+.sectionBadge {
+  font-size: 10px;
+  font-family: "SF Mono", "Fira Code", monospace;
+  color: #5a6070;
+  background: #1e2130;
+  border: 1px solid #2a2d3a;
+  border-radius: 10px;
+  padding: 1px 7px;
+  min-width: 20px;
+  text-align: center;
+}
+
+.badgeOk {
+  color: #40c057;
+  background: rgba(64, 192, 87, 0.08);
+  border-color: rgba(64, 192, 87, 0.2);
+}
+
+.badgeWarn {
+  color: #ff6b6b;
+  background: rgba(255, 107, 107, 0.08);
+  border-color: rgba(255, 107, 107, 0.2);
+}
+
+.sectionContent {
+  padding-bottom: 14px;
+}
+
+.inspectorPanel {
+  border: 1px solid #2a2d3a;
+  border-radius: 6px;
+  background: #101521;
+  padding: 8px 10px;
+}
+
+.inspectorHeader {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #8fb2de;
+}
+
+.inspectorHint {
+  font-size: 10px;
+  color: #6b7d97;
+  margin-top: 3px;
+}
+
+.inspectorCode {
+  margin: 8px 0 0;
+  border: 1px solid #25354f;
+  border-radius: 6px;
+  background: #0a111d;
+  color: #b8d2f5;
+  font-size: 11px;
+  line-height: 1.4;
+  padding: 8px;
+  max-height: 220px;
+  overflow: auto;
+}
+
+/* ── Fact cards ── */
+.factList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.factCard {
+  background: #161920;
+  border: 1px solid #2a2d3a;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 12px;
+}
+
+.factCardButton {
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+.factExcluded {
+  opacity: 0.4;
+}
+
+.factUnused {
+  border-color: #3a3020;
+}
+
+.factHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+
+.factId {
+  font-size: 10px;
+  font-family: "SF Mono", "Fira Code", monospace;
+  color: #748ffc;
+  background: rgba(116, 143, 252, 0.1);
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+.factDomain {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #5a6070;
+  background: #1e2130;
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+.factEvent {
+  color: #c5cae9;
+  margin-bottom: 3px;
+  line-height: 1.4;
+}
+
+.factMeta {
+  font-size: 10px;
+  color: #5a6070;
+}
+
+.factSource {
+  font-style: italic;
+}
+
+.tag {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 1px 5px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  color: #5a6070;
+  background: #1e2130;
+  border: 1px solid #2a2d3a;
+}
+
+.tagCited {
+  color: #40c057;
+  background: rgba(64, 192, 87, 0.08);
+  border-color: rgba(64, 192, 87, 0.2);
+}
+
+.tagUnused {
+  color: #ffa94d;
+  background: rgba(255, 169, 77, 0.08);
+  border-color: rgba(255, 169, 77, 0.2);
+}
+
+/* ── Confidence / severity badges ── */
+.badge {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 1px 5px;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+
+.conf-low    { color: #ffa94d; background: rgba(255, 169, 77, 0.1); }
+.conf-medium { color: #ffd43b; background: rgba(255, 212, 59, 0.1); }
+.conf-high   { color: #40c057; background: rgba(64, 192, 87, 0.1); }
+
+.sev-low      { color: #5a6070; background: #1e2130; }
+.sev-medium   { color: #ffd43b; background: rgba(255, 212, 59, 0.08); }
+.sev-high     { color: #ff6b6b; background: rgba(255, 107, 107, 0.08); }
+.sev-critical { color: #ff4040; background: rgba(255, 64, 64, 0.15); font-weight: 800; }
+
+/* ── Inferences ── */
+.inferenceCard {
+  background: #161920;
+  border: 1px solid #2a2d3a;
+  border-left: 2px solid #3b5bdb;
+  border-radius: 6px;
+  padding: 8px 10px;
+  margin-bottom: 6px;
+  font-size: 12px;
+}
+
+.inferenceCardButton {
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  background: #161920;
+  border: 1px solid #2a2d3a;
+  border-left: 2px solid #3b5bdb;
+  border-radius: 6px;
+  padding: 8px 10px;
+  margin-bottom: 6px;
+}
+
+.inferenceHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 5px;
+}
+
+.inferenceClaim {
+  color: #c5cae9;
+  line-height: 1.4;
+  flex: 1;
+}
+
+.inferenceFacts {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+
+.factRef {
+  font-size: 9px;
+  font-family: "SF Mono", "Fira Code", monospace;
+  color: #748ffc;
+  background: rgba(116, 143, 252, 0.1);
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+.inferenceGap {
+  font-size: 11px;
+  color: #5a6070;
+  font-style: italic;
+  line-height: 1.4;
+  margin-top: 4px;
+}
+
+/* ── Assumptions ── */
+.assumptions {
+  margin-top: 8px;
+  padding: 8px 10px;
+  background: #0d0f18;
+  border-radius: 6px;
+  border: 1px solid #2a2d3a;
+}
+
+.assumptionsLabel {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #5a6070;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.assumption {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 11px;
+  color: #8892a4;
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+.assumptionBadge {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 1px 5px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.status-unconfirmed        { color: #ffa94d; background: rgba(255, 169, 77, 0.1); }
+.status-working-assumption { color: #748ffc; background: rgba(116, 143, 252, 0.1); }
+
+/* ── Uncertainties ── */
+.uncertaintyList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.uncertainty {
+  font-size: 12px;
+  color: #8892a4;
+  padding-left: 14px;
+  position: relative;
+  line-height: 1.4;
+}
+
+.uncertainty::before {
+  content: "?";
+  position: absolute;
+  left: 0;
+  color: #3b5bdb;
+  font-weight: 700;
+  font-size: 11px;
+}
+
+/* ── Actions ── */
+.actionCard {
+  background: #161920;
+  border: 1px solid #2a2d3a;
+  border-radius: 6px;
+  padding: 8px 10px;
+  margin-bottom: 6px;
+  font-size: 12px;
+}
+
+.actionCardButton {
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+.actionValid {
+  border-left: 2px solid #40c057;
+}
+
+.actionInvalid {
+  border-left: 2px solid #ff6b6b;
+  opacity: 0.6;
+}
+
+.actionHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 5px;
+}
+
+.actionId {
+  font-size: 10px;
+  font-family: "SF Mono", "Fira Code", monospace;
+  color: #748ffc;
+  background: rgba(116, 143, 252, 0.1);
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+.validationBadge {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 1px 5px;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+
+.validBadge {
+  color: #40c057;
+  background: rgba(64, 192, 87, 0.1);
+}
+
+.invalidBadge {
+  color: #ff6b6b;
+  background: rgba(255, 107, 107, 0.1);
+}
+
+.actionDescription {
+  color: #c5cae9;
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+.actionRationale {
+  font-size: 11px;
+  color: #5a6070;
+  font-style: italic;
+  line-height: 1.4;
+  margin-bottom: 5px;
+}
+
+.actionCitations {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+/* ── Grounding ── */
+.groundingOk {
+  font-size: 12px;
+  color: #40c057;
+  padding: 6px 0;
+}
+
+.groundingIssues {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.groundingIssue {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 11px;
+}
+
+.groundingIssueButton {
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  border: 1px solid #25354f;
+  background: #121724;
+  border-radius: 6px;
+  padding: 6px 8px;
+}
+
+.issueKind {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #ff6b6b;
+  background: rgba(255, 107, 107, 0.1);
+  padding: 1px 5px;
+  border-radius: 3px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.issueDetail {
+  color: #8892a4;
+  line-height: 1.4;
+}
+
+.unusedNote {
+  font-size: 11px;
+  color: #ffa94d;
+  margin-top: 4px;
+}
+
+/* ── Misc ── */
+.emptyNote {
+  font-size: 12px;
+  color: #5a6070;
+  padding: 4px 0;
+}
