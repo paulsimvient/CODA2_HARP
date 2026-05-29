@@ -28,9 +28,9 @@ type BuildLogisticsPlanInput = {
 /**
  * Converts a COA's selected actions into a populated logistics plan.
  *
- * Lanes are grouped by the first resource of each action.
- * Each action becomes one chip in its lane.
- * Dependencies are computed from sequential actions sharing a resource.
+ * Lanes are keyed by resource: each required asset gets its own lane.
+ * Multi-asset actions produce one chip per resource lane.
+ * Intra-lane dependencies chain sequential chips on the same resource.
  *
  * This runs synchronously — it is pure data transformation, not I/O.
  * It is called inside the pipeline after the solver returns, before any
@@ -154,7 +154,7 @@ export function buildLogisticsPlan(
 
 /**
  * Returns a logistics score in [0, 1] based on plan properties.
- * Higher is better (fewer resource conflicts, shorter duration, fewer gaps).
+ * Higher is better: efficient timeline use, reasonable parallelism, no same-lane overlaps.
  */
 export function scoreLogisticsPlan(plan: LogisticsPlan): number {
   if (plan.kind !== "populated") return 0;
@@ -168,7 +168,32 @@ export function scoreLogisticsPlan(plan: LogisticsPlan): number {
 
   const parallelism = lanes.length / chips.length;
 
-  return clamp(density * 0.6 + parallelism * 0.4, 0, 1);
+  const overlapCount = countSameLaneTimeOverlaps(plan);
+  const overlapPenalty = Math.min(0.4, overlapCount * 0.2);
+
+  return clamp(density * 0.6 + parallelism * 0.4 - overlapPenalty, 0, 1);
+}
+
+/** Overlapping chips on the same resource lane indicate scheduling conflict. */
+function countSameLaneTimeOverlaps(
+  plan: Extract<LogisticsPlan, { kind: "populated" }>
+): number {
+  let overlaps = 0;
+  for (const lane of plan.lanes) {
+    const laneChips = plan.chips.filter((c) => c.laneId === lane.id);
+    for (let i = 0; i < laneChips.length; i++) {
+      for (let j = i + 1; j < laneChips.length; j++) {
+        const a = laneChips[i]!;
+        const b = laneChips[j]!;
+        const aEnd = a.startOffset + a.duration;
+        const bEnd = b.startOffset + b.duration;
+        if (a.startOffset < bEnd && b.startOffset < aEnd) {
+          overlaps++;
+        }
+      }
+    }
+  }
+  return overlaps;
 }
 
 function clamp(value: number, min: number, max: number): number {

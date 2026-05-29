@@ -123,17 +123,7 @@ function evaluateBundle(
   }
 
   const T0 = Date.now() / 1000;
-  const selectedActions: CoaAction[] = bundle.map((action, index) => ({
-    id: action.id,
-    name: action.description,
-    type: action.actionType ?? "other",
-    startTime: T0 + index * 120,
-    duration: durationFor(action.timeSensitivity),
-    resources:
-      action.requiredAssets && action.requiredAssets.length > 0
-        ? action.requiredAssets
-        : ["unassigned-asset"],
-  }));
+  const selectedActions = scheduleBundleActions(bundle, T0);
 
   const overlap = findAssetOverlap(selectedActions);
   if (overlap) {
@@ -232,6 +222,48 @@ function evaluateBundle(
       ],
     },
   };
+}
+
+/**
+ * Maps bundle actions to timed COA actions.
+ * Immediate actions compete for the same start window (T0); non-immediate actions
+ * pack sequentially per asset so overlap reflects real double-booking, not artificial spacing.
+ */
+function scheduleBundleActions(bundle: IntelAction[], T0: number): CoaAction[] {
+  const assetEndTimes = new Map<string, number>();
+
+  return bundle.map((action) => {
+    const resources =
+      action.requiredAssets && action.requiredAssets.length > 0
+        ? action.requiredAssets
+        : ["unassigned-asset"];
+    const duration = durationFor(action.timeSensitivity);
+    const isImmediate = action.timeSensitivity === "immediate" || !action.timeSensitivity;
+
+    let startTime = T0;
+    if (!isImmediate) {
+      for (const asset of resources) {
+        const priorEnd = assetEndTimes.get(asset);
+        if (priorEnd !== undefined) {
+          startTime = Math.max(startTime, priorEnd);
+        }
+      }
+    }
+
+    const end = startTime + duration;
+    for (const asset of resources) {
+      assetEndTimes.set(asset, Math.max(assetEndTimes.get(asset) ?? T0, end));
+    }
+
+    return {
+      id: action.id,
+      name: action.description,
+      type: action.actionType ?? "other",
+      startTime,
+      duration,
+      resources,
+    };
+  });
 }
 
 function findAssetOverlap(actions: CoaAction[]): { asset: string; actionIds: string[] } | undefined {
